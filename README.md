@@ -1,4 +1,14 @@
-# Mesosphere Universe [![Build Status](https://teamcity.mesosphere.io/guestAuth/app/rest/builds/buildType:(id:Oss_Universe_Ci)/statusIcon)](https://teamcity.mesosphere.io/viewType.html?buildTypeId=Oss_Universe_Ci&guest=1)
+# Custom Mesosphere Universe repo for our own packages.
+
+This branch (`mc2`) contains only the `mc2` package -- all other packages have been removed. Add it to your DC/OS installation like so:
+
+```
+dcos package repo add Universe https://github.com/praekeltfoundation/universe/archive/mc2.zip
+```
+
+The remainder of this README is from the original Mesosphere Universe repo.
+
+----------
 
 The DCOS package repository for packages that have been certified by Mesosphere.
 
