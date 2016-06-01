@@ -1,0 +1,50 @@
+{
+  "id": "{{mc2.name}}",
+  "instances": {{mc2.instances}},
+  "cpus": {{mc2.cpus}},
+  "mem": {{mc2.mem}},
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{resource.assets.container.docker.mc2-docker}}",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 80, "hostPort": 0 }
+      ],
+      "parameters": [
+        {"key": "add-host", "value": "servicehost:172.17.0.1"},
+        {"key": "volume-driver", "value": "xylem"},
+        {"key": "volume", "value": "seed-infra-mc2:/data"}
+      ]
+    }
+  },
+  "acceptedResourceRoles": ["{{mc2.role}}"],
+  "healthChecks": [
+    {
+      "path": "/",
+      "portIndex": 0,
+      "protocol": "HTTP",
+      "gracePeriodSeconds": 60,
+      "intervalSeconds": 5,
+      "timeoutSeconds": 2,
+      "maxConsecutiveFailures": 2,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "upgradeStrategy": {
+    "minimumHealthCapacity": {{mc2.minimumHealthCapacity}},
+    "maximumOverCapacity": {{mc2.maximumOverCapacity}}
+  },
+  "labels": {
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_VHOST": "mc2.infr.controller.seed-stack.local"
+  },
+  "env": {
+    "MESOS_MARATHON_HOST": "{{mc2.marathon-uri}}",
+    "SECRET_KEY": "seekrit",
+    "PROJECT_ROOT": "/deploy/",
+    "DATABASE_URL": "sqlite:////data/mc2.db",
+    "HUB_DOMAIN": "{{mc2.hub-domain}}",
+    "DEBUG": "False"
+  }
+}
