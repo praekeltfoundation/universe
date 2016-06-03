@@ -59,7 +59,17 @@
           "type": "string"
         }
       },
-      "required": ["cpus", "mem", "haproxy-group", "instances", "name"],
+      "required": [
+        "cpus",
+        "mem",
+        "haproxy-group",
+        "instances",
+        "name",
+        "minimumHealthCapacity",
+        "maximumOverCapacity",
+        "marathon-uri",
+        "hub-domain"
+      ],
       "type": "object"
     }
   },
