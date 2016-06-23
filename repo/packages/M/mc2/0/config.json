@@ -57,6 +57,16 @@
           "default": "192.168.55.20.xip.io",
           "description": "Domain suffix for default app domains",
           "type": "string"
+        },
+        "database-url": {
+          "default": "sqlite:////data/mc2.db",
+          "description": "Database URL",
+          "type": "string"
+        },
+        "vhost": {
+          "default": "mc2.infr.controller.seed-stack.local",
+          "description": "Virtual host in marathon-lb",
+          "type": "string"
         }
       },
       "required": [
@@ -68,7 +78,9 @@
         "minimumHealthCapacity",
         "maximumOverCapacity",
         "marathon-uri",
-        "hub-domain"
+        "hub-domain",
+        "database-url",
+        "vhost"
       ],
       "type": "object"
     }

@@ -39,13 +39,13 @@
   },
   "labels": {
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_VHOST": "mc2.infr.controller.seed-stack.local"
+    "HAPROXY_0_VHOST": "{{mc2.vhost}}"
   },
   "env": {
     "MESOS_MARATHON_HOST": "{{mc2.marathon-uri}}",
     "SECRET_KEY": "seekrit",
     "PROJECT_ROOT": "/deploy/",
-    "DATABASE_URL": "sqlite:////data/mc2.db",
+    "DATABASE_URL": "{{mc2.database-url}}",
     "HUB_DOMAIN": "{{mc2.hub-domain}}",
     "DEBUG": "False"
   }
