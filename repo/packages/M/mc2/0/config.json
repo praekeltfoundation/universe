@@ -54,7 +54,6 @@
           "type": "string"
         },
         "hub-domain": {
-          "default": "192.168.55.20.xip.io",
           "description": "Domain suffix for default app domains",
           "type": "string"
         },
@@ -64,7 +63,6 @@
           "type": "string"
         },
         "vhost": {
-          "default": "mc2.infr.controller.seed-stack.local",
           "description": "Virtual host in marathon-lb",
           "type": "string"
         }
