@@ -47,9 +47,9 @@
     "PROJECT_ROOT": "/deploy/",
     "DATABASE_URL": "{{mc2.database-url}}",
     "HUB_DOMAIN": "{{mc2.hub-domain}}",
-    {{#mc2.xylem-api-host}}
-    "SEED_XYLEM_API_HOST": "{{mc2.xylem-api-host}}",
-    {{/mc2.xylem-api-host}}
+    {{#mc2.xylem-api-uri}}
+    "SEED_XYLEM_API_HOST": "{{mc2.xylem-api-uri}}",
+    {{/mc2.xylem-api-uri}}
     "DEBUG": "False"
   }
 }

@@ -62,8 +62,8 @@
           "description": "Database URL",
           "type": "string"
         },
-        "xylem-api-host": {
-          "description": "Xylem API host",
+        "xylem-api-uri": {
+          "description": "Base URI for xylem database API",
           "type": "string"
         },
         "vhost": {
