@@ -1,0 +1,9 @@
+{
+  "assets": {
+    "container": {
+      "docker": {
+        "mc2-docker": "praekeltfoundation/mc2:latest"
+      }
+    }
+  }
+}

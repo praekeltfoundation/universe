@@ -1,7 +1,7 @@
 {
   "packages":[
     {
-      "currentVersion":"0.0.2",
+      "currentVersion":"0.0.3",
       "description":"Mission Control 2",
       "framework":false,
       "name":"mc2",
@@ -11,7 +11,8 @@
         "seed"
       ],
       "versions":{
-        "0.0.2":"0"
+        "0.0.2":"0",
+        "0.0.3":"1"
       }
     }
   ],
