@@ -1,0 +1,20 @@
+{
+  "packagingVersion": "3.0",
+  "name": "marathon-acme",
+  "version": "0.1.0",
+  "minDcosReleaseVersion" : "1.8",
+  "scm": "https://github.com/praekeltfoundation/marathon-acme.git",
+  "website": "https://github.com/praekeltfoundation/marathon-acme",
+  "description": "Automate ACME certificates for Marathon apps served by marathon-lb",
+  "maintainer": "sre@praekelt.org",
+  "tags": ["loadbalancer", "haproxy", "acme", "marathon-lb", "lets-encrypt", "https", "ssl", "tls"],
+  "preInstallNotes": "This DC/OS Service is currently EXPERIMENTAL. There may be bugs, incomplete features, incorrect documentation, or other discrepancies. Experimental packages should never be used in production!",
+  "postInstallNotes": "marathon-acme DC/OS Service has been successfully installed!\nSee https://github.com/praekeltfoundation/marathon-acme for documentation.",
+  "postUninstallNotes": "marathon-acme DC/OS Service has been uninstalled and will no longer run.",
+  "licenses": [
+    {
+      "name": "MIT License",
+      "url": "https://github.com/praekeltfoundation/marathon-acme/blob/master/LICENSE"
+    }
+  ]
+}
