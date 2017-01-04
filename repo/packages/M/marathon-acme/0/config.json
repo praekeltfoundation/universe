@@ -35,7 +35,7 @@
           "type": "string"
         },
         "allow-multiple-host-instances": {
-          "description": "Whether it should be allowed that multiple instances of the marathon-acme can exist on the same agent.",
+          "description": "Whether it should be allowed that multiple instances of marathon-acme can exist on the same agent.",
           "type": "boolean",
           "default": false
         },
