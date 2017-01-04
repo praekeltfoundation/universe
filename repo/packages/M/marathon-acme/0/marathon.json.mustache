@@ -1,8 +1,8 @@
 {
-    "id": "{{service.name}}",
-    "cpus": {{service.cpus}},
-    "mem": {{service.mem}},
-    "instances": {{service.instances}},
+    "id": "{{marathon-acme.name}}",
+    "cpus": {{marathon-acme.cpus}},
+    "mem": {{marathon-acme.mem}},
+    "instances": {{marathon-acme.instances}},
     "args": {
         "--marathon", "{{marathon-acme.marathon-uri}}",
         "--lb", "{{marathon-acme.lb-uri}}"
@@ -25,12 +25,12 @@
             ]
         }
     },
-    "acceptedResourceRoles": [ "{{service.role}}" ],
-    {{^service.allow-multiple-host-instances}}
+    "acceptedResourceRoles": [ "{{marathon-acme.role}}" ],
+    {{^marathon-acme.allow-multiple-host-instances}}
     "constraints": [["hostname", "UNIQUE"]],
-    {{/service.allow-multiple-host-instances}}
+    {{/marathon-acme.allow-multiple-host-instances}}
     "labels": {
-        "DCOS_SERVICE_NAME": "{{service.name}}",
+        "DCOS_SERVICE_NAME": "{{marathon-acme.name}}",
         "HAPROXY_GROUP": "{{marathon-acme.haproxy-group}}",
         "HAPROXY_0_VHOST": "example.com",
         "HAPROXY_0_BACKEND_WEIGHT": "1",
