@@ -26,6 +26,9 @@
         }
     },
     "acceptedResourceRoles": [ "{{service.role}}" ],
+    {{^service.allow-multiple-host-instances}}
+    "constraints": [["hostname", "UNIQUE"]],
+    {{/service.allow-multiple-host-instances}}
     "labels": {
         "DCOS_SERVICE_NAME": "{{service.name}}",
         "HAPROXY_GROUP": "{{marathon-acme.haproxy-group}}",
@@ -35,7 +38,4 @@
         "HAPROXY_0_HTTP_FRONTEND_ACL_WITH_PATH": "  acl path_{backend} path_beg {path}\n  use_backend {backend} if path_{backend}\n",
         "HAPROXY_0_HTTPS_FRONTEND_ACL_WITH_PATH": "  use_backend {backend} if path_{backend}\n"
     }
-    {{^service.allow-multiple-host-instances}},
-    "constraints": [["hostname", "UNIQUE"]]
-    {{/service.allow-multiple-host-instances}}
 }
