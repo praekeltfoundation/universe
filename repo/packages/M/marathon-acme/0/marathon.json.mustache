@@ -1,0 +1,41 @@
+{
+    "id": "{{marathon-acme.name}}",
+    "cpus": {{marathon-acme.cpus}},
+    "mem": {{marathon-acme.mem}},
+    "instances": {{marathon-acme.instances}},
+    "args": {
+        "--marathon", "{{marathon-acme.marathon-uri}}",
+        "--lb", "{{marathon-acme.lb-uri}}"
+        {{#marathon-acme.acme-email}}
+        "--email", "{{marathon-acme.acme-email}}",
+        {{/marathon-acme.acme-email}}
+        {{#marathon-acme.acme-uri}}
+        "--acme", "{{marathon-acme.acme-uri}}",
+        {{/marathon-acme.acme-uri}}
+        "--group", "{{marathon-acme.haproxy-group}}"
+    },
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "{{resource.assets.container.docker.marathon-acme}}",
+            "forcePullImage": true,
+            "network": "BRIDGE",
+            "portMappings": [
+                { "containerPort": 8000, "hostPort": 0 }
+            ]
+        }
+    },
+    "acceptedResourceRoles": [ "{{marathon-acme.role}}" ],
+    {{^marathon-acme.allow-multiple-host-instances}}
+    "constraints": [["hostname", "UNIQUE"]],
+    {{/marathon-acme.allow-multiple-host-instances}}
+    "labels": {
+        "DCOS_SERVICE_NAME": "{{marathon-acme.name}}",
+        "HAPROXY_GROUP": "{{marathon-acme.haproxy-group}}",
+        "HAPROXY_0_VHOST": "example.com",
+        "HAPROXY_0_BACKEND_WEIGHT": "1",
+        "HAPROXY_0_PATH": "/.well-known/acme-challenge/",
+        "HAPROXY_0_HTTP_FRONTEND_ACL_WITH_PATH": "  acl path_{backend} path_beg {path}\n  use_backend {backend} if path_{backend}\n",
+        "HAPROXY_0_HTTPS_FRONTEND_ACL_WITH_PATH": "  use_backend {backend} if path_{backend}\n"
+    }
+}

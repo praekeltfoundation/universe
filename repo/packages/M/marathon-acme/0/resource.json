@@ -1,0 +1,9 @@
+{
+  "assets": {
+    "container": {
+      "docker": {
+        "marathon-acme": "praekeltfoundation/marathon-acme:0.1.0"
+      }
+    }
+  }
+}
